@@ -1,7 +1,8 @@
 # Application
 web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
+!web/app/plugins/wv-lazy-load/
+!web/app/plugins/wv-lazy-load/**
+web/app/mu-plugins/*
 web/app/themes/twentytwentyfive/
 web/app/upgrade
 web/app/uploads/*
