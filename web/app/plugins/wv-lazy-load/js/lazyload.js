@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) On ne prend que les vraies images lazy (avec data-src)
   const imgs = Array.from(document.querySelectorAll('img[loading="lazy"]'))
     .filter(img => img.dataset.src);
 
