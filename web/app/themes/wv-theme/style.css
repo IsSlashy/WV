@@ -1,0 +1,153 @@
+/*--------------------------------------------------------------
+1. Reset et variables
+--------------------------------------------------------------*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-text: #333;
+  --color-bg: #fafafa;
+  --color-primary: #0073aa;
+  --color-primary-hover: #005177;
+  --color-border: #e2e2e2;
+  --radius: 0.5rem;
+  --transition: 0.3s ease;
+  --max-width: 1200px;
+}
+
+/*--------------------------------------------------------------
+2. Base
+--------------------------------------------------------------*/
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/*--------------------------------------------------------------
+3. Layout global
+--------------------------------------------------------------*/
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header,
+.site-footer {
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+}
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  border-bottom: none;
+}
+
+/* Header */
+.branding {
+  display: inline-block;
+}
+.site-title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+.site-nav {
+  display: inline-block;
+  float: right;
+}
+.site-nav .menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.site-nav .menu li a {
+  padding: 0.5rem;
+  display: block;
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+.footer-nav .menu--footer {
+  list-style: none;
+  display: inline-flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-nav .menu--footer li a {
+  color: var(--color-text);
+}
+
+/* Main content */
+.site-main {
+  padding: 2rem 0;
+}
+.entry-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.entry-content {
+  margin-top: 2rem;
+}
+
+/*--------------------------------------------------------------
+4. Galerie d’images
+--------------------------------------------------------------*/
+.wp-block-image {
+  margin-bottom: 2rem;
+}
+.wp-block-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.wp-block-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Pour les plusieurs images côte-à-côte (layout plein) */
+.alignwide .wp-block-image,
+.alignfull .wp-block-image {
+  width: auto;
+}
+.alignwide .wp-block-image img,
+.alignfull .wp-block-image img {
+  max-width: 48%;
+  margin: 1%;
+  float: left;
+}
+
+/*--------------------------------------------------------------
+5. Responsive
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+  .alignwide .wp-block-image img,
+  .alignfull .wp-block-image img {
+    max-width: 100%;
+    margin: 0 0 1rem;
+    float: none;
+  }
+}
